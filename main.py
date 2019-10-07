@@ -17,9 +17,7 @@ if f.mode == "r":
 
 DSP = DSPEngine.DSPEngine()
 RMS = Algorithm.Algorithm("RMS")
-Kurtosis = Algorithm.Algorithm("Kurtosis")
-
-DSP.add(RMS)
-DSP.add(Kurtosis)
+Kurtosis = Algortihm.Algorithm("Kurtosis)
+FFT = Algorithm.Algorithm("FFT")
 
 DSP.run(data)
