@@ -15,4 +15,5 @@ def run(data):
     # Calculate RMS through the square root of the average of the sum of squares
     rms = math.sqrt(sumOfSquares/len(data))
 
+    # encapsulate result into ResultEncapsulation object for easier integration
     return Vape.ResultEncapsulation(result=rms, resultType=SupportedAlgorithms.RMS)

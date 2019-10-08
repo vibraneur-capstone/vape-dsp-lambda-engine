@@ -17,5 +17,6 @@ def run(data, m4=0, m2=0):
     # Calculate kurtosis with the fourth moment divided by the square of the variance
     kurtosis = m4 / (m2 ** 2)
 
+    # encapsulate result into ResultEncapsulation object for easier integration
     return Vape.ResultEncapsulation(result=kurtosis, resultType=SupportedAlgorithms.KURTOSIS)
 
