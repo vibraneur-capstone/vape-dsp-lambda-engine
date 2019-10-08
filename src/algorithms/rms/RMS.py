@@ -1,4 +1,7 @@
 import math
+import src.dto.resultEncapsulation as Vape
+from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
+
 
 def run(data):
 
@@ -10,6 +13,6 @@ def run(data):
         sumOfSquares += d*d
 
     # Calculate RMS through the square root of the average of the sum of squares
-    RMS = math.sqrt(sumOfSquares/len(data))
+    rms = math.sqrt(sumOfSquares/len(data))
 
-    print(RMS)
+    return Vape.ResultEncapsulation(result=rms, resultType=SupportedAlgorithms.RMS)

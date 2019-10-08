@@ -1,1 +1,2 @@
 numpy == 1.16.4
+statistics == 1.0.3.5
