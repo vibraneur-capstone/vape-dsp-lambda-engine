@@ -1,9 +1,10 @@
+import unittest
 import os
 import src.algorithms.kurtosis.Kurtosis as kurto
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms as enums
 
 
-class KurtosisTest:
+class MyTestCase(unittest.TestCase):
     f = open(os.path.dirname(__file__)+'/data.txt', "r")
     testData = []
 

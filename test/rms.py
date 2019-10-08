@@ -1,9 +1,10 @@
+import unittest
 import os
 import src.algorithms.rms.RMS as rms
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms as enums
 
 
-class RmsTest:
+class MyTestCase(unittest.TestCase):
     data = open(os.path.dirname(__file__)+'/data.txt', "r")
     testData = []
 
@@ -12,7 +13,10 @@ class RmsTest:
             self.testData.append(int(line))
 
         result = rms.run(self.testData)
-        assert round(47.7132211299, 10) == round(result.result, 10)
-        assert enums.RMS == result.resultType
-        assert result.timestamp is not None
+        self.assertEqual(round(47.7132211299, 10), round(result.result, 10))
+        self.assertEqual(enums.RMS, result.resultType)
+        self.assertIsNotNone(result.timestamp)
 
+
+if __name__ == '__main__':
+    unittest.main()
