@@ -1,2 +1,8 @@
 venv
-.idea
+.DS_Store
+**/.DS_Store
+myenv
+.idea/
+**/__pycache__
+**/__init__.pyc
+__init__.pyc
