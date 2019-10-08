@@ -26,5 +26,5 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    py.test ./test/*.py
+    python -m unittest discover -s test -p '*.py'
   displayName: 'pytest'
