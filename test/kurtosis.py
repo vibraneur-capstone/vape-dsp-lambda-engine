@@ -1,10 +1,10 @@
-import unittest
+import pytest
 import os
 import src.algorithms.kurtosis.Kurtosis as kurto
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms as enums
 
 
-class MyTestCase(unittest.TestCase):
+class MyTestCase():
     f = open(os.path.dirname(__file__)+'/data.txt', "r")
     testData = []
 
@@ -13,10 +13,6 @@ class MyTestCase(unittest.TestCase):
             self.testData.append(int(line))
 
         result = kurto.run(self.testData)
-        self.assertEqual(round(18.0451347234, 10), round(result.result, 10))
-        self.assertEqual(enums.KURTOSIS, result.resultType)
-        self.assertIsNotNone(result.timestamp)
-
-
-if __name__ == '__main__':
-    unittest.main()
+        assert round(18.0451347234, 10) == round(result.result, 10)
+        assert enums.KURTOSIS == result.resultType
+        assert result.timestamp is not None

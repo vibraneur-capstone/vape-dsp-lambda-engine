@@ -4,5 +4,7 @@ venv
 myenv
 .idea/
 **/__pycache__
-**/__init__.pyc
+**/*.pyc
 __init__.pyc
+.cache
+.pytest_cache
