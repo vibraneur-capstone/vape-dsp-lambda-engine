@@ -30,7 +30,5 @@ steps:
   displayName: 'Install dependencies in virtualenv'
 
 - script: |
-    source pipelineVenv/bin/activate
     ./pipelineVenv/bin/python -m unittest discover -s ./test -p "*.py"
-    deactivate
   displayName: 'pytest'
