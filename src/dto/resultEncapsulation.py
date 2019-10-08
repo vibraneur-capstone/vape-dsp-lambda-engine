@@ -1,6 +1,5 @@
 ''' common DTO object for date encapsulation  '''
 from datetime import datetime
-import environment as env
 
 
 class ResultEncapsulation:
