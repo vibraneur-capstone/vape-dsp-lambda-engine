@@ -32,5 +32,5 @@ steps:
 - script: |
     # pip install pytest pytest-azurepipelines
     # pytest
-    python -m unittest discover -s ./DSP-Engine/test -p "*.py"
+    python -m unittest discover -s ./test -p "*.py"
   displayName: 'pytest'
