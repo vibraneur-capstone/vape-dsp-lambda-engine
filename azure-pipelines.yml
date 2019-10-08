@@ -22,13 +22,9 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    python -m pip install --user virtualenv
-    python -m venv pipelineVenv
-    source pipelineVenv/bin/activate
     pip install -r requirements.txt
-    deactivate
-  displayName: 'Install dependencies in virtualenv'
+  displayName: 'Install dependencies'
 
 - script: |
-    ./pipelineVenv/bin/python -m unittest discover -s ./test -p "*.py"
+    py.test ./test/*.py
   displayName: 'pytest'
