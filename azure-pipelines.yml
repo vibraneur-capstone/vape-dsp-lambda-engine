@@ -11,12 +11,8 @@ pool:
   vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python35:
-      python.version: '3.5'
-#     Python36:
-#       python.version: '3.6'
-#     Python37:
-#       python.version: '3.7'
+    Python37:
+      python.version: '3.7'
 
 steps:
 - task: UsePythonVersion@0
@@ -26,11 +22,15 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
+    python -m pip install --user virtualenv
+    python -m venv pipelineVenv
+    source pipelineVenv/bin/activate
     pip install -r requirements.txt
-  displayName: 'Install dependencies'
+    deactivate
+  displayName: 'Install dependencies in virtualenv'
 
 - script: |
-    # pip install pytest pytest-azurepipelines
-    # pytest
+    source pipelineVenv/bin/activate
     python -m unittest discover -s ./test -p "*.py"
+    deactivate
   displayName: 'pytest'
