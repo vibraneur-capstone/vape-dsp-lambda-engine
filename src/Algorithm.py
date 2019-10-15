@@ -1,5 +1,6 @@
 import importlib
 
+
 class Algorithm:
     def __init__(self, ID):
         self.ID = ID

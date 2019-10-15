@@ -1,23 +1,24 @@
 import sys
 
-sys.path.insert(0, './src')
-sys.path.insert(0, './algorithms')
+import src.Algorithm as VapeAlgo
+import src.DSPEngine as VapeDsp
+from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
-import DSPEngine
-import Algorithm
 
-f = open('./test/data.txt', "r")
-data = []
+# f = open('./test/data.txt', "r")
+# data = []
+#
+# if f.mode == "r":
+#     file = f.readlines()
+#
+#     for line in file:
+#         data.append(int(line))
 
-if f.mode == "r":
-    file = f.readlines()
+DSP = VapeDsp.DSPEngine()
 
-    for line in file:
-        data.append(int(line))
+RMS = VapeAlgo.Algorithm(SupportedAlgorithms.RMS)
+Kurtosis = VapeAlgo.Algorithm(SupportedAlgorithms.KURTOSIS)
+FFT = VapeAlgo.Algorithm(SupportedAlgorithms.FFT)
 
-DSP = DSPEngine.DSPEngine()
-RMS = Algorithm.Algorithm("RMS")
-Kurtosis = Algortihm.Algorithm("Kurtosis)
-FFT = Algorithm.Algorithm("FFT")
 
-DSP.run(data)
+# DSP.run(data)
