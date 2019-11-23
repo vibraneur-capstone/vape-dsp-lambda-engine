@@ -1,7 +1,25 @@
-import math
+import json
 import statistics
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
+
+
+def lambda_entry(event, context):
+    if 'data' not in event:
+        return {
+            'statusCode': 400,
+            'description': 'missing data'
+        }
+    try:
+        result = run(event['data'])
+    except:
+        return {
+            'statusCode': 500
+        }
+    return {
+        'statusCode': 200,
+        'body': result.toJsonString()
+    }
 
 
 def run(data, m4=0, m2=0):
@@ -18,5 +36,5 @@ def run(data, m4=0, m2=0):
     kurtosis = m4 / (m2 ** 2)
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=kurtosis, resultType=SupportedAlgorithms.KURTOSIS)
+    return Vape.ResultEncapsulation(result=kurtosis, inputData=data, resultType=SupportedAlgorithms.KURTOSIS)
 
