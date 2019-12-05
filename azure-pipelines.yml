@@ -15,10 +15,19 @@ strategy:
       python.version: '3.7'
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
+
+- script: |
+    npm install -g swagger-cli@2.3.4
+    swagger-cli validate ./swagger/dsp-rest-api-gateway.yaml
+  displayName: 'Swagger file validation'
 
 - script: |
     python -m pip install --upgrade pip
