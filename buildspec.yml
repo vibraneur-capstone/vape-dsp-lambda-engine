@@ -16,7 +16,7 @@ phases:
     commands:
       - echo Building...
       - echo Build started on `date`
-      - ./scripts/build_lambda.sh
+      - ./scripts/build_lambda.sh aws
   post_build:
     commands:
       - echo Build completed on `date`
