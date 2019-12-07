@@ -6,8 +6,8 @@ phases:
       python: 3.8
     commands:
       - echo Installing pip3
-      - apt-get update -y
-      - apt-get install -y python3-pip
+      - sudo apt-get update
+      - sudo apt-get install python3-pip
   pre_build:
     commands:
       - echo Running tests
