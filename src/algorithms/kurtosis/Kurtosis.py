@@ -10,12 +10,8 @@ def lambda_entry(event, context):
             'statusCode': 400,
             'description': 'missing data'
         }
-    try:
-        result = run(event['data'])
-    except:
-        return {
-            'statusCode': 500
-        }
+    result = run(event['data'])
+
     return {
         'statusCode': 200,
         'body': result.toJsonString()

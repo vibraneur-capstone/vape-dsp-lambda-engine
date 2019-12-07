@@ -1,19 +1,19 @@
 import numpy as np
-import json
 from src.dto.resultEncapsulation import ResultEncapsulation
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
 
 def lambda_entry(event, context):
-    try:
-        fft = run(event["data"])
-    except:
+    if 'data' not in event:
         return {
-            'statusCode': 500
+            'statusCode': 400,
+            'description': 'missing data'
         }
+    result = run(event['data'])
+
     return {
         'statusCode': 200,
-        'body': json.dumps(fft)
+        'body': result.toJsonString()
     }
 
 
