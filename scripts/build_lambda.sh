@@ -1,7 +1,20 @@
 #!/bin/bash
 
+# access arguments
+args=("$@")
+len=${#args[@]}
+
 dist_name="dsp-aws-lambda-dist.zip"
 dep_target_path="external_libraries"
+numpy="numpy"
+numpy_info="numpy*"
+
+if [ "$len" == 0 ]; then
+  echo Default goal to package
+  goal="package"
+else
+  goal=$1
+fi
 
 echo "build start"
 
@@ -19,6 +32,12 @@ printf "\nPackaging dependency \n"
 sleep 3
 
 cd $dep_target_path || exit
+
+# remove redundant dependencies (deps will be imported from aws layers)
+if [ "$goal" == "aws" ]; then
+  rm -rf $numpy
+  rm -rf $numpy_info
+fi
 
 #zip -g -r $dist_name $dep_target_path/*
 

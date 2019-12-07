@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing pip3
+#      - sudo apt-get update
+#      - sudo apt-get install python3-pip
+  pre_build:
+    commands:
+      - echo Running tests
+      - ./scripts/test.sh
+  build:
+    commands:
+      - echo Building...
+      - echo Build started on `date`
+      - ./scripts/build_lambda.sh aws
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - './dsp-aws-lambda-dist.zip'
+  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d).zip
