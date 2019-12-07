@@ -15,7 +15,6 @@ phases:
       - source venv/bin/activate
       - python3 -m pip install -r requirements.txt
       - python3 -m unittest discover -s test -p '*.py'
-      - deactivate
       - rm -rf venv
   build:
     commands:
