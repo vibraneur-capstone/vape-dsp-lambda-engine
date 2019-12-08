@@ -24,8 +24,9 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo start
 
 artifacts:
   files:
     - './dsp-aws-lambda-dist.zip'
-  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d).zip
+  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d-%hh-%mm-%ss).zip
