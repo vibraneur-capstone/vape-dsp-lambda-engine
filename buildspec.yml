@@ -25,8 +25,10 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo start
+      - test="test_name"
 
 artifacts:
   files:
     - './dsp-aws-lambda-dist.zip'
-  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d-%H-%M-%S)
+  name: dsp-aws-lambda-dist-$test
+#  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d-%H-%M-%S)
