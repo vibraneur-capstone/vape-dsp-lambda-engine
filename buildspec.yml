@@ -29,4 +29,4 @@ phases:
 artifacts:
   files:
     - './dsp-aws-lambda-dist.zip'
-  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d-%hh-%mm-%ss).zip
+  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d-%H-%M-%S).zip

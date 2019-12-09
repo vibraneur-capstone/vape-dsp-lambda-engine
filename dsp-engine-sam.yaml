@@ -1,15 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Parameters:
-  CodeS3Location:
-    Type: String
-    Default: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
-    Description: the location of code zip file in s3
   DeployPreference:
     Type: String
     Default: AllAtOnce
     AllowedValues:
-      - # Don't allow other type
+      # Don't allow other type
       - AllAtOnce
       - Canary10Percent5Minutes
 Resources:
@@ -19,8 +15,7 @@ Resources:
       FunctionName: rootMeanSquare
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri:
-        Ref: CodeS3Location
+      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
       Handler: src/algorithms/rms/RMS.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -32,8 +27,7 @@ Resources:
       FunctionName: kurtosis
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri:
-        Ref: CodeS3Location
+      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
       Handler: src/algorithms/kurtosis/Kurtosis.lambda_entry
       Runtime: python3.7
       DeploymentPreference:
@@ -45,8 +39,7 @@ Resources:
       FunctionName: fft
       AutoPublishAlias: dev
       Role: arn:aws:iam::742872122332:role/lambda_invoke_function_assume_apigw_role.
-      CodeUri:
-        Ref: CodeS3Location
+      CodeUri: s3://vape-artifacts/dsp-lambda-engine/dsp-aws-lambda-dist.zip
       Handler: src/algorithms/fft/FFT.lambda_entry
       Runtime: python3.7
       Layers:
