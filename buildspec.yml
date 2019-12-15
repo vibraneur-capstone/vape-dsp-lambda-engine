@@ -30,4 +30,5 @@ phases:
 artifacts:
   files:
     - './dsp-aws-lambda-dist.zip'
+    - './swagger/dsp-rest-api-gateway.yaml'
   name: dsp-aws-lambda-dist-$date
