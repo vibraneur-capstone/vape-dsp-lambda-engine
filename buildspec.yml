@@ -11,7 +11,11 @@ phases:
   pre_build:
     commands:
       - echo Running tests
-      - ./scripts/test.sh
+      - python3 -m venv venv
+      - source venv/bin/activate
+      - python3 -m pip install -r requirements.txt
+      - python3 -m unittest discover -s test -p '*.py'
+      - rm -rf venv
   build:
     commands:
       - echo Building...
@@ -20,8 +24,11 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo start
+      - date=$(date +%Y-%m-%d-%H-%M-%S)
 
 artifacts:
   files:
     - './dsp-aws-lambda-dist.zip'
-  name: dsp-aws-lambda-dist-$(date +%Y-%m-%d).zip
+    - './swagger/dsp-rest-api-gateway.yaml'
+  name: dsp-aws-lambda-dist-$date
