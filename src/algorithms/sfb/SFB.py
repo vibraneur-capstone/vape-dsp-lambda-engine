@@ -18,14 +18,17 @@ def lambda_entry(event, context):
 
 
 def run(data):
-    # TODO:::: this computes a double sided spectrum. We may wanna compute only for single sided
+
+    # Calculates the fft.
     fft = parse_complex_number(np.fft.fft(data))
 
-    #splits the fft into the single sided spectrum
+    # TODO:::: use the FFT to compute the SFB using the method outlined in the research paper
+
+    # Splits the fft into the single sided spectrum
     single_fft = fft[len(fft)//2:]
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return ResultEncapsulation(result=single_fft, inputData=data, resultType=SupportedAlgorithms.FFT)
+    return ResultEncapsulation(result=fft, inputData=data, resultType=SupportedAlgorithms.SFB)
 
 
 def parse_complex_number(complex_arr):
