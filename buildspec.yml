@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing pip3
+#      - sudo apt-get update
+#      - sudo apt-get install python3-pip
+  pre_build:
+    commands:
+      - echo Running tests
+      - python3 -m venv venv
+      - source venv/bin/activate
+      - python3 -m pip install -r requirements.txt
+      - python3 -m unittest discover -s test -p '*.py'
+      - rm -rf venv
+  build:
+    commands:
+      - echo Building...
+      - echo Build started on `date`
+      - ./scripts/build_lambda.sh aws
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - version=0.0.1
+      - date=$(date +%Y-%m-%d_%H_%M_%S)
+      - cp ./dsp-aws-lambda-dist.zip ./dsp-aws-lambda-dist-$version.zip
+      - cp ./swagger/dsp-rest-api-gateway.yaml ./swagger-$version.yaml
+
+artifacts:
+  files:
+    - dsp-aws-lambda-dist*.zip
+    - swagger*.yaml
+  name: vape-dsp-lambda-engine

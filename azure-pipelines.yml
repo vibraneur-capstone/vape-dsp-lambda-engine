@@ -11,25 +11,29 @@ pool:
   vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python35:
-      python.version: '3.5'
-#     Python36:
-#       python.version: '3.6'
-#     Python37:
-#       python.version: '3.7'
+    Python37:
+      python.version: '3.7'
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
 
 - script: |
+    npm install -g swagger-cli@2.3.4
+    swagger-cli validate ./swagger/dsp-rest-api-gateway.yaml
+  displayName: 'Swagger file validation'
+
+- script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-# - script: |
-#     pip install pytest pytest-azurepipelines
-#     pytest
-#   displayName: 'pytest'
+- script: |
+    python -m unittest discover -s test -p '*.py'
+  displayName: 'Unit test'
