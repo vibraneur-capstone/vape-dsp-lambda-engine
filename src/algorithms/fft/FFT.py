@@ -25,7 +25,8 @@ def run(data):
     single_fft = fft[len(fft)//2:]
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return ResultEncapsulation(result=single_fft, inputData=data, resultType=SupportedAlgorithms.FFT)
+    # TODO:::: incorporate single spectrum fft variable into the results
+    return ResultEncapsulation(result=fft, inputData=data, resultType=SupportedAlgorithms.FFT)
 
 
 def parse_complex_number(complex_arr):
