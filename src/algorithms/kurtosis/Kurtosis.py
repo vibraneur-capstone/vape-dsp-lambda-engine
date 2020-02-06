@@ -33,4 +33,3 @@ def run(data, m4=0, m2=0):
 
     # encapsulate result into ResultEncapsulation object for easier integration
     return Vape.ResultEncapsulation(result=kurtosis, inputData=data, resultType=SupportedAlgorithms.KURTOSIS)
-

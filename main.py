@@ -1,9 +1,10 @@
 import sys
 
+sys.path.insert(0, 'src/algorithms/..')
+
 import src.Algorithm as VapeAlgo
 import src.DSPEngine as VapeDsp
-from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
-
+from src.algorithms.AlgorithmsEnums import AlgorithmID
 
 # f = open('./test/data.txt', "r")
 # data = []
@@ -16,9 +17,8 @@ from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
 DSP = VapeDsp.DSPEngine()
 
-RMS = VapeAlgo.Algorithm(SupportedAlgorithms.RMS)
-Kurtosis = VapeAlgo.Algorithm(SupportedAlgorithms.KURTOSIS)
-FFT = VapeAlgo.Algorithm(SupportedAlgorithms.FFT)
-
+RMS = VapeAlgo.Algorithm(AlgorithmID.RMS.name)
+Kurtosis = VapeAlgo.Algorithm(AlgorithmID.KURTOSIS.name)
+FFT = VapeAlgo.Algorithm(AlgorithmID.FFT.name)
 
 # DSP.run(data)

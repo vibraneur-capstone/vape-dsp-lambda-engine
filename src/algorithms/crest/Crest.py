@@ -1,8 +1,8 @@
-import math
+import json
+import numpy
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
-# TODO more http status code to be described
 def lambda_entry(event, context):
     if 'data' not in event:
         return {
@@ -28,5 +28,11 @@ def run(data):
     # Calculate RMS through the square root of the average of the sum of squares
     rms = math.sqrt(sumOfSquares/len(data))
 
+    # Calculate maximum value in section of data
+    max = numpy.maximum(data)
+
+    # Calculate crest factor
+    crestFactor = max/rms
+
     # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=rms, inputData=data, resultType=SupportedAlgorithms.RMS)
+    return crestFactor#Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)

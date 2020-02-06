@@ -4,7 +4,7 @@ class DSPEngine:
         self.algorithms = []
 
     '''
-    TODO::: we need to think how we structure this run() function. The current structure precludes the possibility of 
+    TODO::: we need to think how we structure this run() function. The current structure precludes the possibility of
     running multiple algorithms in parallel. Also, it's harder to integrate with data pipeline
     '''
     def run(self, data):
