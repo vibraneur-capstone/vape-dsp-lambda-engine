@@ -1,6 +1,7 @@
 class DSPEngine:
 
     def __init__(self):
+        print('Initializing DSP Engine...')
         self.algorithms = []
 
     '''

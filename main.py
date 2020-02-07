@@ -17,8 +17,8 @@ from src.algorithms.AlgorithmsEnums import AlgorithmID
 
 DSP = VapeDsp.DSPEngine()
 
-RMS = VapeAlgo.Algorithm(AlgorithmID.RMS.name)
-Kurtosis = VapeAlgo.Algorithm(AlgorithmID.KURTOSIS.name)
-FFT = VapeAlgo.Algorithm(AlgorithmID.FFT.name)
+RMS = VapeAlgo.Algorithm(AlgorithmID.RMS)
+Kurtosis = VapeAlgo.Algorithm(AlgorithmID.KURTOSIS)
+FFT = VapeAlgo.Algorithm(AlgorithmID.FFT)
 
 # DSP.run(data)
