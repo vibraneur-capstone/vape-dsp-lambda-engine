@@ -28,7 +28,7 @@ def run(data):
     # Calculate RMS through the square root of the average of the sum of squares
     rms = math.sqrt(sumOfSquares/len(data))
 
-    # Calculate maximum value in section of data
+    # Calculate maximum value for a segment of data
     maximum = max(data)
 
     # Calculate crest factor
@@ -37,4 +37,4 @@ def run(data):
     print(crestFactor)
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return crestFactor#Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)
+    return Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)

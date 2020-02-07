@@ -4,7 +4,7 @@ class Algorithm:
     def __init__(self, ID):
         self.ID = ID.value
         importlib.invalidate_caches()
-        print('Initializing script:' + 'src.algorithm.' + ID.value.lower() + '.' + ID.value)
+        print('Initializing script: ' + self.ID)
         try:
             self.script = importlib.import_module(str('src.algorithms.' + ID.value.lower() + '.' + ID.value))
         except ImportError as err:
@@ -12,4 +12,5 @@ class Algorithm:
 
 
     def call(self, data):
+        print("Running script: " + self.ID)
         self.script.run(data)

@@ -9,10 +9,12 @@ class DSPEngine:
     running multiple algorithms in parallel. Also, it's harder to integrate with data pipeline
     '''
     def run(self, data):
+        print("Running DSP Engine...")
         for a in self.algorithms:
             a.call(data)
 
     def add(self, algorithm):
+        print("Adding script: " + algorithm.ID)
         self.algorithms.append(algorithm)
 
     def remove(self, algorithm):

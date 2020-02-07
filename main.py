@@ -1,6 +1,10 @@
-import sys
+# Testing code for checking the functionality of the DSP Engine and running scripts quickly.
+# Will most likely be converted to the gateway for integrating the DSP module to the full project
+#
+# Richard Walmsley
+# 07/02/2020
 
-sys.path.insert(0, 'src/algorithms/..')
+import sys
 
 import src.Algorithm as VapeAlgo
 import src.DSPEngine as VapeDsp
