@@ -1,5 +1,5 @@
 import json
-import numpy
+import math
 import src.dto.resultEncapsulation as Vape
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms
 
@@ -29,10 +29,12 @@ def run(data):
     rms = math.sqrt(sumOfSquares/len(data))
 
     # Calculate maximum value in section of data
-    max = numpy.maximum(data)
+    maximum = max(data)
 
     # Calculate crest factor
-    crestFactor = max/rms
+    crestFactor = maximum/rms
+
+    print(crestFactor)
 
     # encapsulate result into ResultEncapsulation object for easier integration
     return crestFactor#Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)

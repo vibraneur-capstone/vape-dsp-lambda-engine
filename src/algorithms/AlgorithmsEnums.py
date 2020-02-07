@@ -13,4 +13,4 @@ class AlgorithmID(Enum):
     KURTOSIS = 'Kurtosis'
     FFT = 'FFT'
     SFB = 'SFB'
-    CREST = 'CREST'
+    CREST = 'Crest'
