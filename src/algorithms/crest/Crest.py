@@ -37,4 +37,4 @@ def run(data):
     print(crestFactor)
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return Vape.ResultEncapsulation(result=crestFactor, inputData=data, resultType=SupportedAlgorithms.CREST)
+    return Vape.ResultEncapsulation(result=crest, inputData=data, resultType=SupportedAlgorithms.CREST)

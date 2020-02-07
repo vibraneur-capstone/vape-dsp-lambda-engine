@@ -28,7 +28,7 @@ def run(data):
     single_fft = fft[len(fft)//2:]
 
     # encapsulate result into ResultEncapsulation object for easier integration
-    return ResultEncapsulation(result=fft, inputData=data, resultType=SupportedAlgorithms.SFB)
+    # return ResultEncapsulation(result=sfb, inputData=data, resultType=SupportedAlgorithms.SFB)
 
 
 def parse_complex_number(complex_arr):
