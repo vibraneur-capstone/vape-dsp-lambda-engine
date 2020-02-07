@@ -1,7 +1,7 @@
 import unittest
 import os
 import json
-import src.algorithms.rms.RMS as objectToTest
+import src.algorithms.crest.Crest as objectToTest
 from src.algorithms.AlgorithmsEnums import SupportedAlgorithms as enums
 
 
@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
         assert result['statusCode'] == 200
         parsed_body = result['body']
         assert round(parsed_body['result'], 10) == round(4.967176694168141, 10)
-        assert parsed_body['resultType'] == 'Root Mean Square'
+        assert parsed_body['resultType'] == 'Crest Factor'
         assert parsed_body['timestamp'] is not None
         assert parsed_body['description'] is not None
 
